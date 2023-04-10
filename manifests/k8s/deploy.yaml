@@ -17,7 +17,7 @@ spec:
         app: tekton1
     spec:
       containers:
-      - image: robertorm/pruebatekton:v1
+      - image: nginx
         name: tekton1
         resources: {}
 ---
