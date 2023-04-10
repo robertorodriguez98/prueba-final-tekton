@@ -4,7 +4,7 @@ metadata:
   labels:
     app: tekton1
   name: tekton1
-  namespace: default
+  namespace: tekton1
 spec:
   replicas: 1
   selector:
@@ -27,7 +27,7 @@ metadata:
   labels:
     app: tekton1
   name: tekton1
-  namespace: default
+  namespace: tekton1
 spec:
   type: NodePort
   ports:
