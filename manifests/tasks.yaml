@@ -1,0 +1,12 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: ls-task
+spec:
+  steps:
+    - name: ls
+      image: alpine
+      script: |
+        #!/bin/sh
+        git pull https://github.com/robertorodriguez98/argoCD.git
+        ls

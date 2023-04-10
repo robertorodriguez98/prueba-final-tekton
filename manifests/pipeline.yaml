@@ -7,15 +7,12 @@ spec:
     This pipeline clones a git repo, builds a Docker image with Kaniko and
     pushes it to a registry
   tasks:
-  - name: listar-repo
-    image: alpine
-    script: |
-        #!/bin/sh
-        git pull https://github.com/robertorodriguez98/argoCD.git
-        ls
+  - name: ls-task
+    taskRef:
+      name: ls-task
   - name: desplegar-k8s
     runAfter:
-      - listar-repo
+      - ls-task
     taskRef:
       name: kubernetes-actions
     params:
