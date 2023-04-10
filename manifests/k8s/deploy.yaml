@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: tekton1
+  name: tekton1
+  namespace: argocd
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tekton1
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: tekton1
+    spec:
+      containers:
+      - image: robertorm/pruebatekton:v1
+        name: tekton1
+        resources: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: tekton1
+  name: tekton1
+  namespace: argocd
+spec:
+  type: NodePort
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: tekton1
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: tekton1
+spec:
+  rules:
+  - host: www.argocd-tekton.org
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: tekton1
+            port:
+              number: 80

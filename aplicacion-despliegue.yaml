@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argo-tekton-despliegue1
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/hook: PostSync
+spec:
+  destination:
+    namespace: tekton1
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    repoURL: https://github.com/robertorodriguez98/pruebatekton1.git
+    targetRevision: main
+    path: manifests/despliegue
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: false
+    syncOptions:
+    - CreateNamespace=true
+
+
