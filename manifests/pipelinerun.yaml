@@ -2,12 +2,12 @@ apiVersion: tekton.dev/v1beta1
 kind: PipelineRun
 metadata:
   name: pruebapipe
-  generateName: clone-build-push-run-
+  generateName: pipeline-sencillo-run-
   annotations:
     argocd.argoproj.io/sync-options: Replace=true
 spec:
   pipelineRef:
-    name: clone-build-push
+    name: pipeline-sencillo
   podTemplate:
     securityContext:
       fsGroup: 65532
