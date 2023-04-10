@@ -45,4 +45,3 @@ spec:
         - name: script
           value: |
             kubectl apply --filename https://raw.githubusercontent.com/robertorodriguez98/prueba-final-tekton/main/manifests/k8s/deploy.yaml
-
