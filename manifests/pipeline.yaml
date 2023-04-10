@@ -36,7 +36,6 @@ spec:
     params:
     - name: IMAGE
       value: $(params.image-reference)
-
   - name: desplegar-k8s
       taskRef:
         name: kubernetes-actions
