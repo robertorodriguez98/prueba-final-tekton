@@ -13,7 +13,7 @@ spec:
   source:
     repoURL: https://github.com/robertorodriguez98/prueba-final-tekton.git
     targetRevision: main
-    path: manifests/despliegue
+    path: manifests
   syncPolicy:
     automated:
       prune: true
