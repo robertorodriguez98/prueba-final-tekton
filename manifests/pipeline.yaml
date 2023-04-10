@@ -37,14 +37,11 @@ spec:
     - name: IMAGE
       value: $(params.image-reference)
   - name: desplegar-k8s
-      taskRef:
-        name: kubernetes-actions
-      runAfter:
-        - construir-imagen
-      params:
-        - name: script
-          value: |
-            kubectl apply --filename https://raw.githubusercontent.com/robertorodriguez98/prueba-final-tekton/main/manifests/k8s/deploy.yaml
-      workspaces:
-      - name: output
-        workspace: shared-data
+    runAfter:
+      - construir-imagen
+    taskRef:
+      name: kubernetes-actions
+    params:
+      - name: script
+        value: |
+          kubectl apply --filename https://raw.githubusercontent.com/robertorodriguez98/prueba-final-tekton/main/manifests/k8s/deploy.yaml
