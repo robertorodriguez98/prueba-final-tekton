@@ -6,7 +6,7 @@ metadata:
   name: tekton1
   namespace: default
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: tekton1
