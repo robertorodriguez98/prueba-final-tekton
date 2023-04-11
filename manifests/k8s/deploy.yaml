@@ -6,7 +6,7 @@ metadata:
   name: tekton1
   namespace: default
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: tekton1
@@ -17,7 +17,7 @@ spec:
         app: tekton1
     spec:
       containers:
-      - image: nginx:latest
+      - image: robertorm/pruebatekton:v1
         name: tekton1
         resources: {}
 ---
