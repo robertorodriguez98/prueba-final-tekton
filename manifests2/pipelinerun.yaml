@@ -25,6 +25,6 @@ spec:
       secretName: docker-credentials
   params:
   - name: repo-url
-    value: https://github.com/robertorodriguez98/pruebatekton1.git
+    value: https://github.com/robertorodriguez98/prueba-final-tekton.git
   - name: image-reference
     value: robertorm/pruebatekton:v1
