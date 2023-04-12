@@ -10,7 +10,8 @@ spec:
   selector:
     matchLabels:
       app: tekton1
-  strategy: {}
+  strategy:
+    type: Recreate
   template:
     metadata:
       labels:
